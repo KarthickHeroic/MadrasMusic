@@ -1,0 +1,9 @@
+.header{height:70px;background-color: #1f2431;}
+.header-center{background-color: white; height: 70px;  -webkit-box-shadow: 0 2px 6px -2px #808594;-moz-box-shadow: 0 2px 6px -2px #808594;box-shadow: 0 2px 6px -2px #808594; text-align: center}
+.logo img{height: 40px;margin-top: 10px;}
+ul.controls{padding: 0px;}
+ul li {list-style: none;float: left;margin-top:20px; height: 30px;width: 30px;margin-left:20px;cursor: pointer; }
+ul li.player-icon{background-image: url(/assets/player-icon.png); background-size: contain; background-repeat: no-repeat; }
+ul li.player-icon:hover{background-image: url(/assets/player-icon-hover.png);}
+ul li.search-icon{background-image: url(/assets/search-icon.png); background-size: contain; background-repeat: no-repeat;                           }
+ul li.search-icon:hover{background-image: url(/assets/search-icon-hover.png);} 

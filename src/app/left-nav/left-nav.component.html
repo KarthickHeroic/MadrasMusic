@@ -1,0 +1,31 @@
+<mat-sidenav-container class="left-nav-container" hasBackdrop="true" (mousedown)="sidenav.open()">
+  <mat-sidenav #sidenav mode="side" class="left-nav-list" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+    <mat-list class="nav-list-item">
+      <a (click)="sidenav.close()" routerLink="/Dashboard" routerLinkActive="active"><mat-list-item class="nav-list-item-text">Home</mat-list-item></a>
+      <mat-divider></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Albums" routerLinkActive="active"><mat-list-item class="nav-list-item-text">Albums</mat-list-item></a>
+      <mat-divider></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Stations" routerLinkActive="active"><mat-list-item class="nav-list-item-text">Stations</mat-list-item></a>
+      <mat-divider></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Channels" routerLinkActive="active"><mat-list-item class="nav-list-item-text">Channels</mat-list-item></a>
+      <mat-divider></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/MyMashup" routerLinkActive="active"><mat-list-item class="nav-list-item-text">My Mashup</mat-list-item></a>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content  class="left-nav-content">
+    <mat-list class="nav-list-item">
+      <a (click)="sidenav.close()" routerLink="/Dashboard" routerLinkActive="active"><mat-list-item><i class="icon-home"></i></mat-list-item> </a>      
+      <mat-divider class="divider"></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Albums" routerLinkActive="active"> <mat-list-item><i class="icon-album"></i></mat-list-item></a>
+            <mat-divider class="divider"></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Stations" routerLinkActive="active"><mat-list-item> <i class="icon-station"></i></mat-list-item></a>
+      <mat-divider class="divider"></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/Channels" routerLinkActive="active"><mat-list-item><i class="icon-channel"></i> </mat-list-item></a>
+      <mat-divider class="divider"></mat-divider>
+      <a (click)="sidenav.close()" routerLink="/MyMashup" routerLinkActive="active"><mat-list-item> <i class="icon-mymashup"></i> </mat-list-item></a>
+      <mat-divider class="divider"></mat-divider>
+    </mat-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

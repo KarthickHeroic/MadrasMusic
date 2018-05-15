@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500');
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+*{margin: 0px;}
+body, html{height: 100%;}
+* {
+  font-family: Ubuntu /*Replace with your custom font*/, sans-serif !important; 
+  /*Add the !important to overwrite all elements*/
+}
+.material-icons {
+  font-family: 'Material Icons' !important;
+}
