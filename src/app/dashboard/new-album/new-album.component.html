@@ -1,3 +1,13 @@
-<p>
-  new-album works!
-</p>
+<div class="container">
+  <mat-toolbar>New</mat-toolbar>
+<mat-grid-list cols="2" rowHeight="2:2.3">
+  <mat-grid-tile>
+    <div class="card"> <img src="https://i.pinimg.com/originals/0a/18/ed/0a18edab83630c6be2851336d90d79ab.jpg" alt="Photo of a Shiba Inu"> 
+      <div class="album-title" matTooltip="Kaala">Kaala</div>
+      <div class="album-composser"[matTooltip]="message" >Santhosh Narayanan Santhosh Narayanan Santhosh Narayanan</div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+</div>
+

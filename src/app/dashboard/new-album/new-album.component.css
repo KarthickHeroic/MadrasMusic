@@ -1,1 +1,10 @@
-*{padding-left:60px;}
+/* *{padding-left:60px;} */
+.container{width: calc(100% - 60px); margin-left: 60px;}
+mat-toolbar{height: 40px;background: transparent; color: #63d7f8; }
+.new-album-container{padding: 0px 35px}
+.card{padding: 0; box-shadow: none !important;width: 95%;}
+.card img{object-fit: cover; width: 85%; height: 80%; border: 1px solid #242935; box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); } 
+.album-title, .album-composser{color:#ffffff;white-space: nowrap;width: 85%;    overflow:hidden !important;    text-overflow: ellipsis;}
+.album-composser{font-size: 75%;margin-top:1px; color:#999db7;}
+
+

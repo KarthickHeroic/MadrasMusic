@@ -18,7 +18,10 @@ import { NewAlbumComponent } from './dashboard/new-album/new-album.component';
 import { StationChannelsComponent } from './dashboard/station-channels/station-channels.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
 import { MyMashupComponent } from './my-mashup/my-mashup.component';
+import { HttpClientModule } from '@angular/common/http';
 
+
+import { NewAlbumsService } from './services/new-albums.service';
 
 
 
@@ -43,9 +46,10 @@ import { MyMashupComponent } from './my-mashup/my-mashup.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NewAlbumsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

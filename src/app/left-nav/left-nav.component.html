@@ -1,5 +1,5 @@
 <mat-sidenav-container class="left-nav-container" hasBackdrop="true" (mousedown)="sidenav.open()">
-  <mat-sidenav #sidenav mode="side" class="left-nav-list" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+  <mat-sidenav #sidenav mode="side" class="left-nav-list">
     <mat-list class="nav-list-item">
       <a (click)="sidenav.close()" routerLink="/Dashboard" routerLinkActive="active"><mat-list-item class="nav-list-item-text">Home</mat-list-item></a>
       <mat-divider></mat-divider>

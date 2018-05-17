@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConService } from '../services/con.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-albums',
@@ -7,13 +7,14 @@ import { ConService } from '../services/con.service';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
-
-  constructor(
-   
-  ) { }
+  
+constructor(){}
 
   ngOnInit() {
 
   }
 
 }
+
+
+

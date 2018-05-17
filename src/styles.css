@@ -8,6 +8,8 @@ body, html{height: 100%;}
 * {
   font-family: Ubuntu /*Replace with your custom font*/, sans-serif !important; 
   /*Add the !important to overwrite all elements*/
+  font-weight: 300 !important;
+  font-size:100%; 
 }
 .material-icons {
   font-family: 'Material Icons' !important;
