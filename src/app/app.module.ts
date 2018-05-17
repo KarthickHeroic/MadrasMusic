@@ -19,6 +19,7 @@ import { StationChannelsComponent } from './dashboard/station-channels/station-c
 import { LeftNavComponent } from './left-nav/left-nav.component';
 import { MyMashupComponent } from './my-mashup/my-mashup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ImgFallbackModule } from 'ngx-img-fallback';
 
 
 import { NewAlbumsService } from './services/new-albums.service';
@@ -47,7 +48,8 @@ import { NewAlbumsService } from './services/new-albums.service';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ImgFallbackModule
   ],
   providers: [NewAlbumsService],
   bootstrap: [AppComponent]

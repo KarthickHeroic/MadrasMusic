@@ -1,0 +1,13 @@
+.mat-tab-label{ min-width: 50% !important;color:#d4d8e5; font-size: 100%;height:40px !important;}
+.mat-tab-label.mat-tab-label-active {background-color: transparent;    color: #63d7f8;    font-weight: 700;opacity: 1;}
+.mat-ink-bar { background-color: transparent !important;}
+.mat-tab-label:focus{background-color:transparent !important}
+.song-name{font-size: 80%; color:#ffffff;padding: 4px !important }
+.singer-name{font-size: 65%;display: block; width: 100%; color:#ffffff5e;padding: 4px !important}
+.album-img{width: 50px !important; height: 50px!important; border-radius: 0 !important;padding:0 !important}
+.album-img img{width: 100%; height: 100%;object-fit: cover }
+.mat-tab-header{border-bottom: none !important}
+.history-list{padding-top:0}
+.history-list-item{height: 60px !important;}
+.history-list-item .mat-list-item-content{padding: 0 7px !important}
+.history-list-item .mat-list-item-content .mat-list-text{padding-left: 0 !important;}

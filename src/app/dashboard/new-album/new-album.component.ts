@@ -12,12 +12,17 @@ import { Observable } from 'rxjs/observable';
 export class NewAlbumComponent implements OnInit {
   public NewAlbumsArray = [];
   public NewAlbums= [];
+  number;
   constructor(private _newalbumservice: NewAlbumsService, private http: HttpClient) { }
   ngOnInit() {
     this._newalbumservice.getAlbums()
     .subscribe(data => {this.NewAlbumsArray.push(data);    
-      this.NewAlbums = JSON.parse(this.NewAlbumsArray[0]);
-    });     
-
+      this.NewAlbums = JSON.parse(this.NewAlbumsArray[0]);  
+     }); 
   }
+  onLoaded(isFallback: boolean) {
+   console.log("ok");  }
+ 
+
+  
 }
