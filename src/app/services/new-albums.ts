@@ -4,3 +4,12 @@ export interface INewAlbums {
     ComposerName: string,
     AlbumImage: string
 }
+
+export interface Iimages {
+    ImageId: string
+}
+
+export interface ISVGTile {
+    SvgId: string
+}
+

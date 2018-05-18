@@ -21,7 +21,7 @@ import { MyMashupComponent } from './my-mashup/my-mashup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImgFallbackModule } from 'ngx-img-fallback';
 
-
+import { InlineSVGModule } from 'ng-inline-svg';
 import { NewAlbumsService } from './services/new-albums.service';
 
 
@@ -49,7 +49,8 @@ import { NewAlbumsService } from './services/new-albums.service';
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    ImgFallbackModule
+    ImgFallbackModule,
+    InlineSVGModule
   ],
   providers: [NewAlbumsService],
   bootstrap: [AppComponent]

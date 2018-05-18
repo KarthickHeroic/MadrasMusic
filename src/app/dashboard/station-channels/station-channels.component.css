@@ -1,0 +1,10 @@
+     .station-tile-one {
+        fill: url(#linear-gradient);
+      }
+
+      .polygon-stoke {
+        fill: #a86363;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }

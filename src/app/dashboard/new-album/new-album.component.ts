@@ -20,8 +20,6 @@ export class NewAlbumComponent implements OnInit {
       this.NewAlbums = JSON.parse(this.NewAlbumsArray[0]);  
      }); 
   }
-  onLoaded(isFallback: boolean) {
-   console.log("ok");  }
  
 
   
