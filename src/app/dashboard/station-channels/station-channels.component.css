@@ -1,9 +1,9 @@
-     .station-tile-one {
-        fill: url(#linear-gradient);
+     .gradient-box-1 {
+        fill: url(#linear-gradient-3);
+
       }
 
-      .polygon-stoke {
-        fill: #a86363;
+      .polygon {
         stroke: #fff;
         stroke-miterlimit: 10;
         stroke-width: 3px;
