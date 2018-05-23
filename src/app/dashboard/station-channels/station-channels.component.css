@@ -1,8 +1,17 @@
-     .gradient-box-1 {
-        fill: url(#linear-gradient-3);
-
+.station-tile{ margin: 10px;}
+.station-title{ text-align: center; color: #fff}
+.gradient-box-1 {
+        fill: url(#linear-gradient-1);
       }
-
+     .gradient-box-2 {
+        fill: url(#linear-gradient-2);
+      }
+     .gradient-box-3 {
+        fill: url(#linear-gradient-3);
+      }
+     .gradient-box-4 {
+        fill: url(#linear-gradient-4);
+      }
       .polygon {
         stroke: #fff;
         stroke-miterlimit: 10;

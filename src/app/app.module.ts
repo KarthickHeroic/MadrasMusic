@@ -23,6 +23,8 @@ import { ImgFallbackModule } from 'ngx-img-fallback';
 
 import { InlineSVGModule } from 'ng-inline-svg';
 import { NewAlbumsService } from './services/new-albums.service';
+import { Svg } from './dashboard/station-channels/svg';
+//import { Svg } from './dashboard/station-channels/svg';
 
 
 
@@ -52,7 +54,7 @@ import { NewAlbumsService } from './services/new-albums.service';
     ImgFallbackModule,
     InlineSVGModule
   ],
-  providers: [NewAlbumsService],
+  providers: [NewAlbumsService, Svg],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

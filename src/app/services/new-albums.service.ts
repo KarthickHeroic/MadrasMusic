@@ -8,8 +8,8 @@ import { Observable } from 'rxjs/observable';
 export class NewAlbumsService {
 private _url: string = "https://service.madrasmusic.com/MMService.svc/GetNewReleases";
   private _urlImage: string = "../../assets/Imagedata.json";
-  private _urlSvgTile: string = "../../assets/StationTile.json";
 
+  
   constructor(private http: HttpClient) { }
 getAlbums(): Observable<INewAlbums[]>{
   return this.http.get<INewAlbums[]>(this._url);
@@ -19,8 +19,6 @@ getAlbums(): Observable<INewAlbums[]>{
     return this.http.get<Iimages[]>(this._urlImage);
   }
 
-  getSvgTile(): Observable<ISVGTile[]> {
-    return this.http.get<ISVGTile[]>(this._urlSvgTile);
-  }
+
 
 }

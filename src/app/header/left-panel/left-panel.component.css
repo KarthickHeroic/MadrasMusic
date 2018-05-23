@@ -1,0 +1,6 @@
+ul.controls{padding: 0px;}
+ul li {list-style: none;float: left;margin-top:20px; height: 30px;width: 30px;margin-left:20px;cursor: pointer; }
+ul li.player-icon{background-image: url(/assets/player-icon.png); background-size: contain; background-repeat: no-repeat; }
+ul li.player-icon:hover{background-image: url(/assets/player-icon-hover.png);}
+ul li.search-icon{background-image: url(/assets/search-icon.png); background-size: contain; background-repeat: no-repeat;                           }
+ul li.search-icon:hover{background-image: url(/assets/search-icon-hover.png);} 
