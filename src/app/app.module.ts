@@ -24,6 +24,7 @@ import { ImgFallbackModule } from 'ngx-img-fallback';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { NewAlbumsService } from './services/new-albums.service';
 import { Svg } from './dashboard/station-channels/svg';
+import { LoginComponent } from './header/right-panel/right-panel.component';
 //import { Svg } from './dashboard/station-channels/svg';
 
 
@@ -41,7 +42,8 @@ import { Svg } from './dashboard/station-channels/svg';
     NewAlbumComponent,
     StationChannelsComponent,
     LeftNavComponent,
-    MyMashupComponent
+    MyMashupComponent,
+    LoginComponent
   
   ],
   imports: [
@@ -54,6 +56,7 @@ import { Svg } from './dashboard/station-channels/svg';
     ImgFallbackModule,
     InlineSVGModule
   ],
+  entryComponents: [LoginComponent],
   providers: [NewAlbumsService, Svg],
   bootstrap: [AppComponent]
 })

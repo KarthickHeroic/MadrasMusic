@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {
     MatButtonModule, 
     MatSidenavModule,
@@ -13,7 +13,7 @@ import {
     MatCardModule, 
     MatToolbarModule, 
     MatTooltipModule,
-    MatTabsModule,    
+    MatTabsModule  
 } from '@angular/material';
 
 @NgModule({
@@ -29,8 +29,8 @@ import {
         MatCardModule, 
         MatToolbarModule, 
         MatTooltipModule,
-        MatTabsModule
-        
+        MatTabsModule,
+        MatBottomSheetModule
     ],
     exports: 
     [MatButtonModule, 
@@ -44,8 +44,8 @@ import {
         MatCardModule, 
         MatToolbarModule, 
         MatTooltipModule,
-        MatTabsModule
-        
+        MatTabsModule,
+        MatBottomSheetModule
     ]
 })
 
