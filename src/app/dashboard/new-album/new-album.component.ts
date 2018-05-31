@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewAlbumsService } from '../../services/new-albums.service';
+import { NewAlbumsService } from '../../services/new-albums/new-albums.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
-
 
 @Component({
   selector: 'app-new-album',
@@ -10,17 +9,15 @@ import { Observable } from 'rxjs/observable';
   styleUrls: ['./new-album.component.css']
 })
 export class NewAlbumComponent implements OnInit {
-  public NewAlbumsArray = [];
   public NewAlbums= [];
   number;
   constructor(private _newalbumservice: NewAlbumsService, private http: HttpClient) { }
   ngOnInit() {
     this._newalbumservice.getAlbums()
-    .subscribe(data => {this.NewAlbumsArray.push(data);    
-      this.NewAlbums = JSON.parse(this.NewAlbumsArray[0]);  
-     }); 
-  }
- 
-
-  
+      .subscribe(data => {
+        this.NewAlbums.push(data);    
+        this.NewAlbums = JSON.parse(this.NewAlbums[0]);  
+    }); 
+  }  
 }
+

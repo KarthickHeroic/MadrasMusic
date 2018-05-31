@@ -1,0 +1,8 @@
+mat-toolbar{margin:-10px -15px 5px -15px; width: auto; }
+mat-form-field{width: 100%; margin-bottom: 10px;}
+.login-from{ width: calc (100% - 40px); margin: 20px;}
+.login-button{width: 100%}
+.login-button button{background-color: #2f8399; color:#ffffff}
+.signup-link{margin:10px 0 }
+.signup-link a{padding-left:10px; color: #2f8399; cursor: pointer; }
+.mat-input-element{caret-color:#2f8399}

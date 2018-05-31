@@ -1,4 +1,5 @@
 ul.user{padding: 0px;float:right}
 ul li {list-style: none;float: right;margin-top:20px; height: 30px;margin-right:20px;cursor: pointer; }
+ul li.logout-icon{background-image: url(/assets/logout.svg); background-size: contain; background-repeat: no-repeat;width:30px;}
 ul li.user-icon{background-image: url(/assets/user.svg); background-size: contain; background-repeat: no-repeat;width:30px; }
 ul li.user-name{color:#888d9c;line-height: 30px}

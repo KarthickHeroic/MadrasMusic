@@ -9,13 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'app';
   restItems: any;
+  
   restItemsUrl = 'https://service.madrasmusic.com/MMService.svc/GetNewReleases';
 
   constructor(private http: HttpClient) { }
 
+
   ngOnInit() {
 
   }
-
 
 }

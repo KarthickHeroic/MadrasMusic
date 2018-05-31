@@ -1,0 +1,6 @@
+.signup-from{max-width: 100%; margin: 20px;}
+.signup-button{width: 100%}
+.signup-button button{background-color: #2f8399; color:#ffffff}
+.mat-input-element{caret-color:#2f8399}
+mat-toolbar{margin:-10px -15px 5px -15px; width: auto; }
+mat-form-field{width: 100%; margin-bottom: 10px;}

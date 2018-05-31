@@ -14,3 +14,5 @@ body, html{height: 100%;}
 .material-icons {
   font-family: 'Material Icons' !important;
 }
+.toast-container .toast{ box-shadow: 0 0 5px #000000 !important; width: auto !important; border-radius: 0 !important;}
+.toast-container .toast:hover{box-shadow: 0 0 5px #000000;}

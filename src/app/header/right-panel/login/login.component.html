@@ -1,3 +1,25 @@
-<p>
-  login works!
-</p>
+<mat-toolbar>Login</mat-toolbar>
+<form (ngSubmit)="login(loginFrom.value)" #loginFrom="ngForm">
+    <mat-form-field>
+        <input required matInput placeholder="Email" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ngModel
+            name="emailId" #emailId="ngModel">
+        <mat-error *ngIf="emailId.touched && !emailId.valid">
+            <div *ngIf="emailId.errors.required">Email Id is required</div>
+            <div *ngIf="emailId.errors.pattern">Please enter valid email id</div>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input required matInput placeholder="Password" type="password" ngModel name="Password" #Password="ngModel">
+        <mat-error *ngIf="Password.touched && !Password.valid">
+            <div *ngIf="Password.errors.required">Password is required</div>
+        </mat-error>
+    </mat-form-field>
+
+    <div class="login-button" fxLayoutAlign="end center">        
+    <button type="submit" mat-raised-button [disabled]="!loginFrom.form.valid">Submit</button>
+    </div>
+    <div class="signup-link" fxLayoutAlign="end center">Not a registered user yet?
+        <a (click)="openBottomSignupSheet()"> Sign up now!</a>
+    </div>
+</form>
+

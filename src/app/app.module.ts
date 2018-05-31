@@ -22,10 +22,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImgFallbackModule } from 'ngx-img-fallback';
 
 import { InlineSVGModule } from 'ng-inline-svg';
-import { NewAlbumsService } from './services/new-albums.service';
+import { NewAlbumsService } from './services/new-albums/new-albums.service';
+import { SignupService } from './services/signup/signup.service';
+import { loginService, GetuserNameService } from './services/login/login.service';
 import { Svg } from './dashboard/station-channels/svg';
 import { LoginComponent } from './header/right-panel/right-panel.component';
-//import { Svg } from './dashboard/station-channels/svg';
+import { SignupComponent } from './header/right-panel/right-panel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Connection, Cservices } from './services/constring';
+import { ToastrModule } from 'ngx-toastr';
+import { PlaylistComponent } from './dashboard/playlist/playlist.component';
 
 
 
@@ -36,14 +42,16 @@ import { LoginComponent } from './header/right-panel/right-panel.component';
     routingComponents,
     CenterPanelComponent,
     LeftPanelComponent,
+    LoginComponent,
     RightPanelComponent,
     PageNotFoundComponent,
     HistoryTrendingComponent,
     NewAlbumComponent,
     StationChannelsComponent,
     LeftNavComponent,
-    MyMashupComponent,
-    LoginComponent
+    MyMashupComponent,    
+    SignupComponent, PlaylistComponent,
+
   
   ],
   imports: [
@@ -54,10 +62,13 @@ import { LoginComponent } from './header/right-panel/right-panel.component';
     FlexLayoutModule,
     HttpClientModule,
     ImgFallbackModule,
-    InlineSVGModule
+    InlineSVGModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
-  entryComponents: [LoginComponent],
-  providers: [NewAlbumsService, Svg],
+  entryComponents: [LoginComponent, SignupComponent],  
+  providers: [NewAlbumsService, loginService, SignupService, GetuserNameService, Svg, Connection, Cservices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

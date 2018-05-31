@@ -1,5 +1,5 @@
 <ul class="user">
+  <a><li *ngIf="userLoginStatus" (click) = "logout()" class="logout-icon"></li></a>
   <a (click) = "openBottomSheet()"><li class="user-icon"></li></a>
-  <li class="user-name">Adminstrator</li>
-<button mat-raised-button (click)="openBottomSheet()">Open file</button>
+  <li class="user-name">{{userName}}</li>
 </ul>

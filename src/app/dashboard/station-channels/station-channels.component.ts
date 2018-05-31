@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input, ViewEncapsulation } from '@angular/core';
-import { NewAlbumsService } from '../../services/new-albums.service';
+import { NewAlbumsService } from '../../services/new-albums/new-albums.service';
 import { HttpClient } from '@angular/common/http';
 import { Svg } from './svg';
 import 'rxjs/add/operator/map'
@@ -14,10 +14,8 @@ export class StationChannelsComponent implements OnInit, AfterViewInit  {
  
   public Image = [];
   public ImageUrlArray = [];
-  public ArtistCount;
 
 
-  imagepath1; imagepath2; imagepath3; imagepath4; add; data; text;
 
   constructor(private _newalbumservice: NewAlbumsService, private http: HttpClient, private _Svg: Svg) { }
 
@@ -27,16 +25,16 @@ export class StationChannelsComponent implements OnInit, AfterViewInit  {
 
     this._newalbumservice.getImage()
       .subscribe(data => {
-        this.ImageUrlArray.push(data);
-        this.ImageLoad();  
+        this.ImageUrlArray.push(data);       
       });
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {  
-      this.ArtistCount = 1;   
+    setTimeout(() => { 
+      this.ImageLoad();  
       document.getElementById('ShapeContainer').innerHTML = this._Svg.polygon_3;
       this.Image.forEach((element, index) => { 
+       
         if(index == 4)
         {
           return false;
@@ -48,9 +46,11 @@ export class StationChannelsComponent implements OnInit, AfterViewInit  {
     }, 10);
   }
    
-  ImageLoad(): void {
+  ImageLoad(): void {  
+    console.log(this.ImageUrlArray.length);
     for (let result of this.ImageUrlArray[0]) {
       this.Image.push(result.imgUrl);
-       }
-  }
+    }
+
+}
 }

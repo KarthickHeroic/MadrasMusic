@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+
 import {
     MatButtonModule, 
-    MatSidenavModule,
-    MatInputModule, 
+    MatSidenavModule, 
     MatCheckboxModule, 
     MatListModule, 
     MatDividerModule, 
@@ -13,7 +14,11 @@ import {
     MatCardModule, 
     MatToolbarModule, 
     MatTooltipModule,
-    MatTabsModule  
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+
+    
 } from '@angular/material';
 
 @NgModule({
@@ -30,8 +35,13 @@ import {
         MatToolbarModule, 
         MatTooltipModule,
         MatTabsModule,
-        MatBottomSheetModule
-    ],
+        MatBottomSheetModule,
+        MatFormFieldModule
+
+        
+            
+        
+        ],
     exports: 
     [MatButtonModule, 
         MatSidenavModule, 
@@ -45,7 +55,11 @@ import {
         MatToolbarModule, 
         MatTooltipModule,
         MatTabsModule,
-        MatBottomSheetModule
+        MatBottomSheetModule,
+        MatFormFieldModule
+     
+                   
+ 
     ]
 })
 
