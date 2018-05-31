@@ -1,0 +1,39 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 285 285">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #ddbcbc;
+      }
+
+      .cls-2,
+      .cls-3 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        fill: #a86363;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="285" y2="285" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#48edb5" />
+      <stop offset="0.22" stop-color="#44e8be" />
+      <stop offset="0.59" stop-color="#38dbd8" />
+      <stop offset="0.99" stop-color="#27c9fb" />
+    </linearGradient>
+  </defs>
+  <title>two</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <rect class="cls-1" width="285" height="285" />
+      <polygon class="cls-2" points="123.17 114.83 48.56 114.83 11.25 179.45 48.56 244.06 123.17 244.06 160.48 179.45 123.17 114.83" />
+      <polygon class="cls-3" points="235.44 49.94 160.83 49.94 123.52 114.55 160.83 179.17 235.44 179.17 272.75 114.55 235.44 49.94" />
+    </g>
+  </g>
+</svg>

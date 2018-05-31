@@ -1,0 +1,44 @@
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 285 285">
+    <defs>
+      <linearGradient id="linear-gradient-1" x2="285" y2="285" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#54bbf8" />
+        <stop offset="0.13" stop-color="#5dbef0" />
+        <stop offset="0.34" stop-color="#77c7db" />
+        <stop offset="0.61" stop-color="#a0d4b9" />
+        <stop offset="0.92" stop-color="#d9e789" />
+        <stop offset="1" stop-color="#e8ec7d" />
+      </linearGradient>
+          <linearGradient id="linear-gradient-2" x2="285" y2="285" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#48edb5" />
+      <stop offset="0.22" stop-color="#44e8be" />
+      <stop offset="0.59" stop-color="#38dbd8" />
+      <stop offset="0.99" stop-color="#27c9fb" />
+    </linearGradient>
+        <linearGradient id="linear-gradient-3" x2="285" y2="285" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e12b90" />
+      <stop offset="0.11" stop-color="#d83394" />
+      <stop offset="0.28" stop-color="#be489e" />
+      <stop offset="0.5" stop-color="#956aaf" />
+      <stop offset="0.75" stop-color="#5c99c6" />
+      <stop offset="0.99" stop-color="#1fcbdf" />
+    </linearGradient>
+          <linearGradient id="linear-gradient-4" x2="285" y2="285" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ff8b0c" />
+        <stop offset="0.1" stop-color="#fd8a15" />
+        <stop offset="0.26" stop-color="#f8862f" />
+        <stop offset="0.47" stop-color="#f08058" />
+        <stop offset="0.71" stop-color="#e57792" />
+        <stop offset="0.98" stop-color="#d76ddb" />
+        <stop offset="0.99" stop-color="#d66cdf" />
+      </linearGradient>
+    </defs>
+
+    <g id="SvgContainer" data-name="SvgContainer">
+      <g id="ShapeContainer" data-name="ShapeContainer">
+         <!-- <pattern id="pattern1" height="100%" width="100%" patternContentUnits="objectBoundingBox">     
+      </pattern>
+        <rect class="gradient-box-1" width="285" height="285" />
+        <polygon class="polygon" points="200.56 41.94 84.44 41.94 26.39 142.5 84.44 243.06 200.56 243.06 258.61 142.5 200.56 41.94" fill="url(#pattern1)"        /> -->
+      </g>
+    </g>
+  </svg>
