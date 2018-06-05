@@ -6,12 +6,14 @@
 <div class="container">
   <mat-toolbar>New Album</mat-toolbar>
   <mat-grid-list cols="3" rowHeight="2:2.3">
-    <mat-grid-tile  *ngFor="let nAlbums of NewAlbums| slice:0:12;">      
-      <div class="card" >
+    <mat-grid-tile  *ngFor="let nAlbums of NewAlbums| slice:0:12;" (click)="getSongs(nAlbums.AlbumId, nAlbums.AlbumTitle)">      
+      <div class="card">          
         <img  src="http://images.cb.com.s3-website-us-west-2.amazonaws.com/{{nAlbums.AlbumTitle}}.jpg" src-fallback="../../assets/ph.png" alt="{{nAlbums.AlbumTitle}}">
         <div class="album-title" >{{nAlbums.AlbumTitle}}</div>
         <div class="album-composser" >{{nAlbums.ComposerName}}</div>
+        <div hidden="true">{{nAlbums.AlbumId}}</div>                
       </div>
+
     </mat-grid-tile>
   </mat-grid-list>
 </div>

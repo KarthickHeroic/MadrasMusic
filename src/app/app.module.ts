@@ -20,6 +20,7 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
 import { MyMashupComponent } from './my-mashup/my-mashup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImgFallbackModule } from 'ngx-img-fallback';
+import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 
 import { InlineSVGModule } from 'ng-inline-svg';
 import { NewAlbumsService } from './services/new-albums/new-albums.service';
@@ -65,10 +66,29 @@ import { PlaylistComponent } from './dashboard/playlist/playlist.component';
     InlineSVGModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgSlimScrollModule
   ],
   entryComponents: [LoginComponent, SignupComponent],  
-  providers: [NewAlbumsService, loginService, SignupService, GetuserNameService, Svg, Connection, Cservices],
+  providers: [NewAlbumsService, loginService, SignupService, GetuserNameService, Svg, Connection, Cservices, {provide: SLIMSCROLL_DEFAULTS, useValue: 
+    {
+      alwaysVisible: false,
+      gridOpacity: '1', barOpacity: '0.5',
+      gridBackground: '#c2c2c2',
+      gridWidth: '5',
+      gridMargin: '0px 0px',
+      barBackground: '#2C3E50',
+      barWidth: '5',
+      barMargin: '0px 0px',
+      position: '', // left | right     
+      barBorderRadius: 1, // 20
+      gridBorderRadius: 0, // 20  
+      visibleTimeout: 1000, // 1000
+      scrollSensitivity: 1, // 1
+
+
+    }}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
