@@ -1,0 +1,17 @@
+mat-card{background-color: #181c27; height: 100%;padding: 0;}
+.player-container{height: 100%;}
+.playsong-name{font-size: 115%;padding: 0px 0px 15px 5px; color: #ffffff }
+.album-name, .composser-name{color:#888d99; padding-left: 5px; font-size:85% }
+.song-info-container{padding:5px;}
+mat-slider{width: 100%}
+
+.controller{background-color:#1f232f; border-top: solid #3a3d46 1px;  }
+/* i.icon {background-repeat: no-repeat;height: 22px; width: 22px;} */
+.icon {background-size: contain; background-repeat: no-repeat;height: 22px; width: 22px;margin: 10px;}
+.shuffle{background-image: url("./../../assets/player/shuffle.svg");}
+.repeat{background-image: url("./../../assets/player/repeat.svg");}
+.prev{background-image: url("./../../assets/player/prev.svg");}
+.player{background-image: url("./../../assets/player/player.svg"); height: 30px; width: 30px;}
+.next{background-image: url("./../../assets/player/next.svg");}
+.speaker{background-image: url("./../../assets/player/speaker.svg");}
+.setting{background-image: url("./../../assets/player/setting.svg");}

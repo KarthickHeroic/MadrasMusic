@@ -33,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Connection, Cservices } from './services/constring';
 import { ToastrModule } from 'ngx-toastr';
 import { PlaylistComponent } from './dashboard/playlist/playlist.component';
+import { PlayerComponent } from './player/player.component';
 
 
 
@@ -48,6 +49,7 @@ import { PlaylistComponent } from './dashboard/playlist/playlist.component';
     PageNotFoundComponent,
     HistoryTrendingComponent,
     NewAlbumComponent,
+    PlayerComponent,
     StationChannelsComponent,
     LeftNavComponent,
     MyMashupComponent,    
@@ -85,8 +87,6 @@ import { PlaylistComponent } from './dashboard/playlist/playlist.component';
       gridBorderRadius: 0, // 20  
       visibleTimeout: 1000, // 1000
       scrollSensitivity: 1, // 1
-
-
     }}
   ],
   bootstrap: [AppComponent]

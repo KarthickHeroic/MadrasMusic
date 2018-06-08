@@ -17,6 +17,7 @@ import {
     MatTabsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSliderModule
 
     
 } from '@angular/material';
@@ -36,7 +37,8 @@ import {
         MatTooltipModule,
         MatTabsModule,
         MatBottomSheetModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+            MatSliderModule
 
         
             
@@ -56,7 +58,8 @@ import {
         MatTooltipModule,
         MatTabsModule,
         MatBottomSheetModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+            MatSliderModule
      
                    
  

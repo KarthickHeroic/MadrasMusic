@@ -1,24 +1,36 @@
-
-<mat-toolbar  *ngFor='let song of songs | slice:0:1'>
-    <mat-toolbar-row>
-    <span class="playlist-title"> 
+<div class="container" fxLayout fxLayout="column">
+<div fxFlex="75%">
+  <mat-toolbar *ngFor='let song of songs | slice:0:1'>
+  <mat-toolbar-row>
+    <span class="playlist-title">
       <div class="playlist-name">{{song.AlbumTitle}} </div>
       <div class="song-count"> {{ songs?.length }} Song(s) </div>
-    </span>   
-    <mat-icon class="example-icon">play_arrow</mat-icon> 
-    </mat-toolbar-row>
-  </mat-toolbar>
+    </span>
+    <mat-icon class="example-icon">play_arrow</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-      <mat-list class="song-list" *ngFor="let nSongs of songs">
-        <mat-list-item class="song-list-item">
-          <div mat-line class="song-name">{{nSongs.Title}}</div>
-          <div mat-line class="singers">{{nSongs.Singers}} - <i>{{nSongs.AlbumTitle}}</i></div>
-          <div mat-list-icon class="album-img">
-            <img src="http://images.cb.com.s3-website-us-west-2.amazonaws.com/{{nSongs.AlbumTitle}}.jpg" alt="" />
-          </div>
-            <div class="duration">04:35</div>
-          <mat-icon class="example-icon">add</mat-icon>
-          <mat-icon class="example-icon">play_arrow</mat-icon>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
+<mat-list class="song-list" *ngFor="let nSongs of songs">
+  <mat-list-item class="song-list-item">
+    <div mat-line class="song-name">{{nSongs.Title}}</div>
+    <div mat-line class="singers">{{nSongs.Singers}} -
+      <i>{{nSongs.AlbumTitle}}</i>
+    </div>
+    <div mat-list-icon class="album-img">
+      <img src="http://images.cb.com.s3-website-us-west-2.amazonaws.com/{{nSongs.AlbumTitle}}.jpg" alt="" />
+    </div>
+    <div class="duration">04:35</div>
+    <mat-icon class="example-icon">add</mat-icon>
+    <mat-icon class="example-icon">play_arrow</mat-icon>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list></div>
+<div fxFlex="25%" class="player">
+<app-player></app-player>
+</div>
+
+</div>
+
+
+
+     
