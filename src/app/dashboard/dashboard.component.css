@@ -3,4 +3,4 @@
 .left, .right{background-color:#181c27;}
 .album, .history{background-color: #2f3243;height:100%;}
 .center {overflow:auto; overflow-x: hidden; max-width: 100% !important; height: 100%;}
-app-playlist{width: 100%;}
+app-songlist{width: 100%;}

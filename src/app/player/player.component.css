@@ -7,11 +7,21 @@ mat-slider{width: 100%}
 
 .controller{background-color:#1f232f; border-top: solid #3a3d46 1px;  }
 /* i.icon {background-repeat: no-repeat;height: 22px; width: 22px;} */
-.icon {background-size: contain; background-repeat: no-repeat;height: 22px; width: 22px;margin: 10px;}
+.icon {background-size: contain; background-repeat: no-repeat;height: 22px; width: 22px;margin: 10px;cursor: pointer;}
 .shuffle{background-image: url("./../../assets/player/shuffle.svg");}
+.shuffle:hover{background-image: url("./../../assets/player/shuffle-h.svg");}
 .repeat{background-image: url("./../../assets/player/repeat.svg");}
+.repeat:hover{background-image: url("./../../assets/player/repeat-h.svg");}
 .prev{background-image: url("./../../assets/player/prev.svg");}
+.prev:hover{background-image: url("./../../assets/player/prev-h.svg");}
 .player{background-image: url("./../../assets/player/player.svg"); height: 30px; width: 30px;}
 .next{background-image: url("./../../assets/player/next.svg");}
+.next:hover{background-image: url("./../../assets/player/next-h.svg");}
 .speaker{background-image: url("./../../assets/player/speaker.svg");}
+.speaker:hover{background-image: url("./../../assets/player/speaker-h.svg");}
 .setting{background-image: url("./../../assets/player/setting.svg");}
+.setting:hover{background-image: url("./../../assets/player/setting-h.svg");}
+.playlist-icon{width: 25px; height: 25px;background-image: url("./../../assets/player/playlist.svg");background-size: contain; margin: 5px;}
+::ng-deep .mat-accent .mat-slider-thumb, ::ng-deep .mat-accent .mat-slider-thumb-label,::ng-deep .mat-accent .mat-slider-track-fill{background-color: #49c9eb}
+/* .mini{width: 30px; height: 30px;background-image: url("./../../assets/player/playlist.svg");background-size: contain} */
+

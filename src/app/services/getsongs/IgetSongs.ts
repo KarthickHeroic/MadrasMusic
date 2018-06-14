@@ -1,14 +1,13 @@
 import { Title } from "@angular/platform-browser";
 
-export interface IgetAlbum{
- albumTitle:string,
- composerName:string,
- image:string
-
- }
 export interface IgetSongs {
-   Id:string,
+   id:string,
    songTitle:string,
+    albumTitle: string,
+    composser: string,
    lyricist:string,
-   singers:string
+  url: string
+}
+export interface IgetSongsUrl {
+  url:string
 }

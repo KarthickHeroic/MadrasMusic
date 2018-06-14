@@ -32,8 +32,11 @@ import { SignupComponent } from './header/right-panel/right-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Connection, Cservices } from './services/constring';
 import { ToastrModule } from 'ngx-toastr';
-import { PlaylistComponent } from './dashboard/playlist/playlist.component';
+import { SonglistComponent } from './dashboard/songlist/songlist.component';
 import { PlayerComponent } from './player/player.component';
+
+import { NgxSoundmanager2PlusModule } from 'ngx-soundmanager2plus';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 
 
@@ -53,7 +56,7 @@ import { PlayerComponent } from './player/player.component';
     StationChannelsComponent,
     LeftNavComponent,
     MyMashupComponent,    
-    SignupComponent, PlaylistComponent,
+    SignupComponent, SonglistComponent, PlaylistComponent,
 
   
   ],
@@ -69,6 +72,7 @@ import { PlayerComponent } from './player/player.component';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    NgxSoundmanager2PlusModule.forRoot(),
     NgSlimScrollModule
   ],
   entryComponents: [LoginComponent, SignupComponent],  

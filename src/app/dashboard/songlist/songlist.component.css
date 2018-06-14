@@ -1,7 +1,7 @@
 .container{height: 100%;}
 mat-toolbar{flex-direction: column;min-height: 55px; width: 100%; background-color: #f3f4f4}
 mat-toolbar-row{height: 50px;}
-mat-icon{margin-top: 5px;color:#9b9b9b;}
+mat-icon{margin-top: 5px;color:#9b9b9b; cursor: pointer;}
 mat-divider{border-top-color: #0000000f}
 .mat-list .mat-list-item .mat-list-item-content .mat-list-text:not(:nth-child(2)){padding-left: 5px;}
 .playlist-title{width: 100%;}
