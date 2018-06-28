@@ -1,9 +1,10 @@
+
 import { Component, OnInit, ViewChild, AfterViewInit, Output, EventEmitter  } from '@angular/core';
 import { NewAlbumsService } from '../../services/new-albums/new-albums.service';
 import { GetsongsService } from '../../services/getsongs/getsongs.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
-import { PlaylistComponent } from '../playlist/playlist.component';
+import { PlayListComponent } from '../playlist/playlist.component';
 
 
 
@@ -19,7 +20,7 @@ export class NewAlbumComponent implements OnInit, AfterViewInit {
   //@Output() onFilter:EventEmitter = new EventEmitter();
 
 
-  private _playlistComponent: PlaylistComponent;
+
 
   public NewAlbums= [];
   number;
@@ -36,24 +37,5 @@ export class NewAlbumComponent implements OnInit, AfterViewInit {
    
   } 
 
-  // clickFilter(): void {
-  //   // this.onFilter.emit('Register click');
-  //   this._getSongsService.filter('Register click');
-  // }
-
-  getSongs(x,y){
-    this._getSongsService.filter(x);
-    
-  // this._getSongsService.changeMessage(y);
-  //   this._playlistComponent.test();
-
-  //   this._getSongsService.currentMessage.subscribe(message => this.message = message)
-  // //  newMessage() {
-  //     // this._getSongsService.changeMessage("Hello from Sibling")
-  //     console.log(this.message)
-  //   console.log(x + ":" + y);
-    }
-
-    
-   
+  getSongs(x,y){ this._getSongsService.filter(x); }    
   }

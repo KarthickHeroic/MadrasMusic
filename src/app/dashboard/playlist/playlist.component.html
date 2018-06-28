@@ -3,7 +3,7 @@
  <mat-toolbar *ngFor='let song of songs | slice:0:1'>
   <mat-toolbar-row>
     <span class="playlist-title">
-      <div class="playlist-name">{{song.AlbumTitle}} </div>
+      <div class="playlist-name">{{albumTitle}} </div>
       <div class="song-count"> {{ songs?.length }} Song(s) </div>
     </span>
     <mat-icon class="example-icon">play_arrow</mat-icon>
@@ -21,11 +21,21 @@
       <img src="http://images.cb.com.s3-website-us-west-2.amazonaws.com/{{song.AlbumTitle}}.jpg" alt="" />
     </div>
     <div class="duration">04:35</div>
-    <mat-icon  musicPlayer [song]="song">add</mat-icon>
+    <mat-icon  musicPlayer [song]="song" >add</mat-icon>
     <mat-icon  [musicPlayer]="'play'" [song]="song" >play_arrow</mat-icon>
   </mat-list-item>
   <mat-divider></mat-divider>
 </mat-list></div>
+
+<!-- <div class="playlist">
+  <div *ngFor="let song of playlist; index as i;">
+    <a playFromPlaylist [song]="song">{{ song.id }}</a>
+    <a removeFromPlaylist [song]="song" [index]="i">
+      <small>(remove)</small>
+    </a>
+    <span *ngIf="currentPlaying && currentPlaying.id == song.id"> - (current)</span>
+  </div>
+</div> -->
 
 <div fxFlex="25%" class="player">
 <app-player></app-player>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicPlayerService } from 'ngx-soundmanager2plus';
+import { MusicPlayerService } from './../services/madrasmusicplayer/madrasmusicplayer';
 
 @Component({
   selector: 'app-player',
@@ -75,4 +75,6 @@ export class PlayerComponent implements OnInit {
       }
     }, 100);
   }
+
+
 }

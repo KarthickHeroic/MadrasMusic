@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Connection, Cservices } from './../constring';
-import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { IAuth } from './loginauth.service';
 import 'rxjs/add/operator/catch';
@@ -16,7 +16,7 @@ export class loginService {
     let Params = new HttpParams();
     Params = Params.append('Email', user);
     Params = Params.append('Password',password);
-    return this.http.get<IAuth[]>(this._url, { params: Params })
+    return this.http.get<IAuth[]>(this._url, { params: Params})
             .catch(this.errorHandler);      
   }
 

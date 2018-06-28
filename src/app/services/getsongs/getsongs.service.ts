@@ -36,6 +36,7 @@ export class GetsongsService {
 
 
   private _listners = new Subject<any>();
+  private _playListlistners = new Subject<any>();
 
   listen(): Observable<any> {
     return this._listners.asObservable();
@@ -43,6 +44,13 @@ export class GetsongsService {
 
   filter(filterBy: string) {
     this._listners.next(filterBy);
+  }
+
+  playListlistener(): Observable<any> {
+    return this._playListlistners.asObservable();
+  }
+  playList() {
+    this._playListlistners.next();
   }
 
 }
