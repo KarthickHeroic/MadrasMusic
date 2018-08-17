@@ -28,7 +28,7 @@ export class NewAlbumComponent implements OnInit, AfterViewInit {
   constructor(private _newalbumservice: NewAlbumsService, private http: HttpClient, private _getSongsService: GetsongsService) { }
   ngOnInit() {
     this._newalbumservice.getAlbums()
-      .subscribe(data => {
+      .subscribe(data => {    
         this.NewAlbums.push(data);    
         this.NewAlbums = JSON.parse(this.NewAlbums[0]);         
     }); 

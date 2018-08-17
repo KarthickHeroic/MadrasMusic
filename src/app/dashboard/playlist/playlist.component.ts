@@ -3,6 +3,7 @@ import { element, Key } from 'protractor';
 import { GetsongsService } from '../../services/getsongs/getsongs.service';
 import { MusicPlayerService } from './../../services/madrasmusicplayer/madrasmusicplayer'
 import { IgetSongs } from './../../services/getsongs/IgetSongs';
+import { Observable } from 'rxjs/observable';
 
 
 @Component({
@@ -24,11 +25,14 @@ export class PlayListComponent implements OnInit {
    
     }
   getSongsfromAlbum(event) {
+  //  this._getSongsService.getSongs("dbc0c7a9-5d4d-4632-aaac-2db8e8cbce17")
     this._getSongsService.getSongs(event)
+
       .subscribe(data => { 
-        this.songs = [];        
-        this.songs.push(data); 
-        this.songs = (JSON.parse(this.songs[0]))['Songs'];   
+        this.songs = [];       
+        this.songs.push(data);         
+        this.albumTitle =(JSON.parse(this.songs[0]))['Title']; 
+        this.songs = (JSON.parse(this.songs[0]))['Songs'];       
         this.songs.forEach(element => {
           element.id = element.Id;
           delete element.Id;                 
@@ -49,7 +53,7 @@ export class PlayListComponent implements OnInit {
      return this._musicPlayerService.getPlaylist();
   }
 
-  get
+  
 }
   
 

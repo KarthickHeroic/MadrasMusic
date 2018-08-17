@@ -5,6 +5,7 @@
 
 <div class="container">
   <mat-toolbar>New Album</mat-toolbar>
+  <!-- <button (click)="getSongs(a,b)">testUrl</button> -->
   <mat-grid-list cols="3" rowHeight="2:2.3">
     <mat-grid-tile  *ngFor="let nAlbums of NewAlbums| slice:0:12;" (click)="getSongs(nAlbums.AlbumId, nAlbums.AlbumTitle)">      
       <div class="card">          

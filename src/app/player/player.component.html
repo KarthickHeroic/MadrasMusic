@@ -1,109 +1,136 @@
 <mat-card>
     <div fxLayout fxLayout="column" class="player-container">
-    <div class="song-info-container" fxLayout fxLayout="row"  fxFlex="70%">
-    <div fxFlex="18%">
-        <img src="../../assets/player/kaala.jpg" width="90%" height="100%">
-    </div>
-    <div fxFlex="82%" fxLayout="column">
-        <div fxFlex="70%" fxLayout="row">
-            <div fxFlex="90%">
-            <!-- <div class="playsong-name">{{ currentPlaying.title }}</div> -->
-            <!-- <div class="album-name"> {{ currentPlaying.artist }}</div> -->
-            <div class="composser-name">Santhosh Narayanan</div>
+        <div *ngIf="!isVolumeStatus; then hideSlider else showSlider"></div>
+        <ng-template #showSlider>
+            <div class="icon speakerActive" (click)="isVolume()"></div>
+            <div class="volumeContainer" (mouseenter)="onVolContainer()" (mouseleave)="outVolContainer()">
+                <mat-slider value={{currentVolume}} (input)="volChange($event)" class="volSlider" (blur)="isVolume()" max="100" min="0"
+                    thumbLabel="true" vertical="true">
+                </mat-slider>
             </div>
-            <div fxFlex="10%" fxLayout="column" fxLayoutAlign="top end">
-                <!-- <div fxFlex="50%"><div class="mini"></div></div> -->
-                <div fxFlex="50%"><div class="playlist-icon"></div></div>                
+        </ng-template>
+        <ng-template #hideSlider>
+            <div class="icon speaker" (click)="isVolume()"></div>
+        </ng-template>
+        <div class="song-info-container" fxLayout fxLayout="row" fxFlex="70%">
+            <div fxFlex="18%">
+                <img src="../../assets/player/kaala.jpg" width="90%" height="100%">
+            </div>
+            <div fxFlex="82%" fxLayout="column">
+                <div fxFlex="70%" fxLayout="row">
+                    <div fxFlex="90%">
+                        <!-- <div class="playsong-name">{{ currentPlaying.title }}</div> -->
+                        <!-- <div class="album-name"> {{ currentPlaying.artist }}</div> -->
+                        <div class="composser-name">Santhosh Narayanan</div>
+                    </div>
+                    <div fxFlex="10%" fxLayout="column" fxLayoutAlign="top end">                  
+                        <div fxFlex="50%">
+                            <div class="playlist-icon" (click)="showPlayList()" ></div>
+                            <div class="setting-icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="30%">
+                    <mat-slider disabled="{{progressBarStatus}}" ProgressBar value={{currentTrackProgress}}></mat-slider>                 
+                </div>
             </div>
         </div>
-        <div fxFlex="30%">
-            <mat-slider value={{currentTrackProgress}} (input)="changePos($event)"></mat-slider>
-        </div>
-    </div>    
-</div>
-<div class="controller" fxLayout fxLayout="row" fxFlex="30%" fxLayoutAlign="center center">
-<i class="icon shuffle"></i>
-<i class="icon repeat"></i>
-<i class="icon prev"></i>
-<i class="icon player" playMusic></i>
-<i class="icon next" pauseMusic></i>
-<i class="icon speaker"></i>
-<i class="icon setting"></i>
-</div>
-</div>
-    
-</mat-card>
+        <div class="controller" fxLayout fxLayout="row" fxFlex="30%" fxLayoutAlign="center center">     
+            <div *ngIf="!repeatStatus; then repeatDactive  else repeatActive"></div>
+            <ng-template #repeatActive>
+            <i class="icon repeat" repeatMusic></i>
+            </ng-template>
+            <ng-template #repeatDactive>
+                <i class="icon repeatDeactive" repeatMusic></i>
+            </ng-template>         
+            <i class="icon prev" previousTrack></i>
+            <div *ngIf="!isPlayStatus; then playMusicid else pauseMusicid"></div>
+            <ng-template #playMusicid>
+                <i class="icon player" (click)="isPlay()" playMusic></i>
+            </ng-template>
+            <ng-template #pauseMusicid>
+                <i class="icon pause" (click)="isPlay()" pauseMusic></i>
+            </ng-template>
+            <i class="icon next" nextTrack></i>
 
+            <div *ngIf="!suffleStatus; then shuffleDactive  else shuffleActive"></div>
+            <ng-template #shuffleActive>
+            <i class="icon shuffle" shuffleMusic></i>
+            </ng-template>
+                <ng-template #shuffleDactive>
+                    <i class="icon shuffleDeactive" shuffleMusic></i>
+                </ng-template>
+        </div>
+    </div>
+</mat-card>
 <div style="text-align:center; margin: 8px;">
     <h1 class="mat-h1">
-
     </h1>
-
-<!-- 
-        <div class="button-row play-btns">
-            <button mat-raised-button color="primary" playAll [songs]="songs">Play all</button>
-            <button mat-raised-button color="accent" playAll [songs]="songs" [play]="false">Add all</button>
-        </div>
-    </div>
-
-    <hr />
-
-    <div>
-        <p *ngIf="currentPlaying" class="mat-body">
-            Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentTrackPostion | humanTime }} / {{
-            currentTrackDuration | humanTime }})
-        </p>
-
-        <div class="progress" style="height: 20px; width: 100%;" (click)="changePos($event)">
-            <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{width : progress }">
-                <span class="sr-only"></span>
-            </div>
-        </div>
-
-        <div class="button-row">
-            <button mat-raised-button shuffleMusic>Shuffle</button>
-            <button mat-raised-button color="primary" playMusic>
-                <i class="fa fa-play" aria-hidden="true"></i>
-            </button>
-            <button mat-raised-button color="accent" pauseMusic>
-                <i class="fa fa-pause" aria-hidden="true"></i>
-            </button>
-            <button mat-raised-button color="warn" stopMusic>
-                <i class="fa fa-stop" aria-hidden="true"></i>
-            </button>
-            <button mat-raised-button repeatMusic>Repeat</button>
-        </div>
-
-        <h5 class="mat-body">Volume: {{ volume }}</h5>
-
-        <div class="button-row">
-            <button mat-raised-button color="primary" increaseVolume>+</button>
-            <button mat-raised-button color="accent" decreaseVolume>-</button>
-            <button mat-raised-button muteMusic>Mute ({{ mute }})</button>
-        </div>
-
-        <div class="button-row">
-            <button mat-icon-button color="primary" previousTrack>
-                <i class="fa fa-step-backward" aria-hidden="true"></i>
-            </button>
-            <button mat-icon-button color="primary" nextTrack>
-                <i class="fa fa-step-forward" aria-hidden="true"></i>
-            </button>
-            <button mat-raised-button color="primary" clearPlaylist>Clear Playlist</button>
-        </div>
-
-        <h5 class="mat-title playlist-title">Playlist:</h5>
-
-        <div class="playlist">
-            <div *ngFor="let song of playlist; index as i;">
-                <a playFromPlaylist [song]="song">{{ song.title }}</a>
-                <a removeFromPlaylist [song]="song" [index]="i">
-                    <small>(remove)</small>
-                </a>
-                <span *ngIf="currentPlaying && currentPlaying.id == song.id"> - (current)</span>
-            </div>
-        </div>
-    </div>
-</div>
-
- -->
+    <!-- 
+   <div class="button-row play-btns">
+       <button mat-raised-button color="primary" playAll [songs]="songs">Play all</button>
+       <button mat-raised-button color="accent" playAll [songs]="songs" [play]="false">Add all</button>
+   </div>
+   </div>
+   
+   <hr />
+   
+   <div>
+   <p *ngIf="currentPlaying" class="mat-body">
+       Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentTrackPostion | humanTime }} / {{
+       currentTrackDuration | humanTime }})
+   </p>
+   
+   <div class="progress" style="height: 20px; width: 100%;" (click)="changePos($event)">
+       <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{width : progress }">
+           <span class="sr-only"></span>
+       </div>
+   </div>
+   
+   <div class="button-row">
+       <button mat-raised-button shuffleMusic>Shuffle</button>
+       <button mat-raised-button color="primary" playMusic>
+           <i class="fa fa-play" aria-hidden="true"></i>
+       </button>
+       <button mat-raised-button color="accent" pauseMusic>
+           <i class="fa fa-pause" aria-hidden="true"></i>
+       </button>
+       <button mat-raised-button color="warn" stopMusic>
+           <i class="fa fa-stop" aria-hidden="true"></i>
+       </button>
+       <button mat-raised-button repeatMusic>Repeat</button>
+   </div>
+   
+   <h5 class="mat-body">Volume: {{ volume }}</h5>
+   
+   <div class="button-row">
+       <button mat-raised-button color="primary" increaseVolume>+</button>
+       <button mat-raised-button color="accent" decreaseVolume>-</button>
+       <button mat-raised-button muteMusic>Mute ({{ mute }})</button>
+   </div>
+   
+   <div class="button-row">
+       <button mat-icon-button color="primary" previousTrack>
+           <i class="fa fa-step-backward" aria-hidden="true"></i>
+       </button>
+       <button mat-icon-button color="primary" nextTrack>
+           <i class="fa fa-step-forward" aria-hidden="true"></i>
+       </button>
+       <button mat-raised-button color="primary" clearPlaylist>Clear Playlist</button>
+   </div>
+   
+   <h5 class="mat-title playlist-title">Playlist:</h5>
+   
+   <div class="playlist">
+       <div *ngFor="let song of playlist; index as i;">
+           <a playFromPlaylist [song]="song">{{ song.title }}</a>
+           <a removeFromPlaylist [song]="song" [index]="i">
+               <small>(remove)</small>
+           </a>
+           <span *ngIf="currentPlaying && currentPlaying.id == song.id"> - (current)</span>
+       </div>
+   </div>
+   </div>
+   </div>
+   
+   -->

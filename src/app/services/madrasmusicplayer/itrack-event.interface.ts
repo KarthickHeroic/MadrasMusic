@@ -3,4 +3,5 @@ export interface ITrackEvent {
   trackProgress?: number;
   trackPosition?: number;
   trackDuration?: number;
+  trackBuffer?:number;
 }

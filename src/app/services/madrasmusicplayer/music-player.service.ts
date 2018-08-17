@@ -1,29 +1,32 @@
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import {Injectable, EventEmitter} from '@angular/core';
 import {MusicPlayerEventConstants} from './music-player-events.constants';
 import {ITrackEvent} from './itrack-event.interface';
 import {MusicPlayerUtils} from './music-player.utils';
 import { GetsongsService } from '../../services/getsongs/getsongs.service';
 import { parse } from 'url';
+import { Observable } from 'rxjs/observable';
+import { ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 declare const soundManager: any;
 
 @Injectable()
 export class MusicPlayerService {
-
+    isPlaytest:boolean;
     currentTrack: string = null;
     songUrl;
+    urlExpireTime:Date =  new Date();
+    setTrackId;
     repeat: boolean = false;
     shuffle: boolean = false;
     autoPlay: boolean = true;
     isPlaying: boolean = false;
-
     trackProgress: number = 0;
-    volume: number = 100;
+    setPausePosistion = 0;
+    volume: number =100;
     position: number;
     duration: number;
-
     playlist: Array<any> = [];
-
     public musicPlayerEventEmitter: EventEmitter<any> = new EventEmitter();
     public musicPlayerMuteEventEmitter: EventEmitter<any> = new EventEmitter();
     public musicPlayerRepeatEventEmitter: EventEmitter<any> = new EventEmitter();
@@ -31,10 +34,8 @@ export class MusicPlayerService {
     public musicPlayerStopEventEmitter: EventEmitter<any> = new EventEmitter();
     public musicPlayerTrackEventEmitter: EventEmitter<any> = new EventEmitter();
     public musicPlayerVolumeEventEmitter: EventEmitter<any> = new EventEmitter();
-
     private _soundObject: any;
-
-    constructor(private _getSongsService: GetsongsService) {
+    constructor(private _getSongsService: GetsongsService, private activatedRoute: ActivatedRoute, private http: HttpClient) {
         this.init();
     }
 
@@ -113,7 +114,7 @@ export class MusicPlayerService {
                  */
                 whileloading: function () {                
                     soundManager._writeDebug('sound ' + this.id + ' loading, ' + this.bytesLoaded + ' of ' + this.bytesTotal);
-                    let trackLoaded = ((this.bytesLoaded / this.bytesTotal) * 100);
+                    let trackLoaded = ((this.bytesLoaded / this.bytesTotal) * 100);                  
                     let musicPlayerService = soundManager.parent;
                     if (musicPlayerService) {
                         musicPlayerService.musicPlayerEventEmitter.emit({
@@ -162,7 +163,8 @@ export class MusicPlayerService {
                  * @note Using ES6 and this refers to the Angular MusicPlayerService instances
                  * instead of the SMSound object instance
                  */
-                onfinish: () => {      
+                onfinish: () => {     
+                     this.adjustProgress(0); 
                     if (this.autoPlay === true) {
                         this.nextTrack();
                         let trackEventData: ITrackEvent = {
@@ -197,6 +199,8 @@ export class MusicPlayerService {
         return this.currentTrack;
     }
 
+
+
     /**
      *
      * @returns {any}
@@ -205,6 +209,11 @@ export class MusicPlayerService {
         let trackId = this.getCurrentTrack();
         let currentKey = MusicPlayerUtils.IsInArray(this.playlist, trackId);
         return this.playlist[currentKey];
+    }
+    
+    getPlayStatus(){
+
+        return this.isPlaying
     }
 
     /**
@@ -289,13 +298,35 @@ export class MusicPlayerService {
      * @param trackId
      * @param isResume
      */
-    initPlayTrack(trackId: string, isResume: boolean): void {  
-
-        this._getSongsService.getSongsUrl(trackId, 0).subscribe(songurl => {          
-            soundManager.sounds[trackId].url= songurl;           
+    initPlayTrack(trackId: string, isResume: boolean): void {         
+        let currentDate = new Date();
+        if(trackId === this.setTrackId)
+        {
+            if ((new Date(this.urlExpireTime).getTime() <= new Date(currentDate).getTime())) 
+            {
+                this.getUrl(trackId, isResume)
+            }
+            else 
+            {
+                this.startPlay(trackId, isResume);
+            }
+        }
+        else
+        {          
+        this.getUrl(trackId, isResume)
+        }         
+    }
+    getUrl(trackId: string, isResume: boolean){
+        this._getSongsService.getSongsUrl(trackId, 0).subscribe(songurl => {
+            this.songUrl = songurl;
+            let time = new URL(songurl.toString()).searchParams.get("Expires");
+            this.urlExpireTime = new Date(0);
+            this.urlExpireTime.setUTCSeconds(parseInt(time));
+            soundManager.sounds[trackId].url = this.songUrl;
+            this.setTrackId = trackId;
             this.startPlay(trackId, isResume);
-            
-        });  
+        });
+        
     }
 
     startPlay(trackId,isResume){
@@ -312,7 +343,8 @@ export class MusicPlayerService {
             trackId: this.currentTrack,
             trackProgress: this.trackProgress,
             trackDuration: this.duration,
-            trackPosition: 0
+            trackPosition:0
+               
         };
         this.musicPlayerTrackEventEmitter.emit({
             event: MusicPlayerEventConstants.TRACK_ID,
@@ -331,6 +363,7 @@ export class MusicPlayerService {
      * If the track is already playing, ignore event
      */
     play(): void {      
+      
         if (!this.isPlaying) {
             let trackToPlay = null;
             //check if no track loaded, else play loaded track
@@ -338,7 +371,7 @@ export class MusicPlayerService {
                 if (soundManager.soundIDs.length === 0) {
                     return;
                 }
-                trackToPlay = soundManager.soundIDs[0];
+                trackToPlay = soundManager.soundIDs[0];.0
                 this.initPlayTrack(trackToPlay, false);
             } else {
                 trackToPlay = this.getCurrentTrack();
@@ -351,6 +384,8 @@ export class MusicPlayerService {
      * Toggles Pause state
      */
     pause(): void {
+    
+      this.setPausePosistion = this.position;
         this.isPlaying = !this.isPlaying;
         if (this.isPlaying) {
             soundManager.play(this.currentTrack);
@@ -407,6 +442,7 @@ export class MusicPlayerService {
         let currentTrackKey = MusicPlayerUtils.GetIndexByValue(soundManager.soundIDs, this.getCurrentTrack());
         let nextTrackKey = +currentTrackKey + 1;
         let nextTrack;
+        this.adjustProgress(0);
 
         if (this.shuffle === true) {
             //select random track from playlist if shuffle is on
@@ -451,7 +487,7 @@ export class MusicPlayerService {
             console.log('Please click on Play before this action');
             return null;
         }
-
+        this.adjustProgress(0)
         let currentTrackKey = MusicPlayerUtils.GetIndexByValue(soundManager.soundIDs, this.getCurrentTrack());
         let prevTrackKey = +currentTrackKey - 1;
         let prevTrack = soundManager.soundIDs[prevTrackKey];
@@ -593,6 +629,7 @@ export class MusicPlayerService {
             });
         };
         changeVolume(value);
+        this.volume = value;
     }
 
     /**
@@ -611,7 +648,8 @@ export class MusicPlayerService {
                 trackId: this.currentTrack,
                 trackProgress: newprogress,
                 trackPosition: this.position,
-                trackDuration: this.duration
+                trackDuration: this.duration,
+              
             };
             this.musicPlayerTrackEventEmitter.emit({
                 event: MusicPlayerEventConstants.TRACK_ID,

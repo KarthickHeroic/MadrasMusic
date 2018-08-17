@@ -1,5 +1,7 @@
 export class Connection {
-    private static serviceurl ="https://service.madrasmusic.com/MMService.svc/";
+   private static serviceurl ="https://service.madrasmusic.com/MMService.svc/";
+   // private static serviceurl = "http://madrasmusic.tillidsoft.com/api/";
+    
     public serviceurl: string;
     constructor() {
         this.serviceurl = Connection.serviceurl;

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/Subject';
@@ -17,8 +16,8 @@ export class GetsongsService {
   
   getSongs(albumId): Observable<IgetSongs[]> {
     let Params = new HttpParams();
-    Params = Params.append('albumId', albumId);    
-    return this.http.get<IgetSongs[]>(this._url, { params: Params })
+    Params = Params.append('albumId', albumId); 
+     return this.http.get<IgetSongs[]>(this._url, { params: Params })
       .catch(this.errorHandler);
   }
   errorHandler(error: HttpErrorResponse) {
@@ -45,12 +44,11 @@ export class GetsongsService {
   filter(filterBy: string) {
     this._listners.next(filterBy);
   }
-
+ 
   playListlistener(): Observable<any> {
     return this._playListlistners.asObservable();
   }
   playList() {
     this._playListlistners.next();
   }
-
 }
